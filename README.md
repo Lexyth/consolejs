@@ -1,0 +1,3 @@
+# consolejs
+
+Just a quick and dirty console that shows you more than just [object Object]. Not a whole lot more though...
