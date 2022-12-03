@@ -285,7 +285,7 @@ function output(result, deep) {
   }
 }
 
-
+/*
 console.log(console);
 console.log("Done");
 
@@ -300,5 +300,5 @@ console.error("Error!");
 
 let arr = [0,1,2,3,4,5,6];
 console.log(`Error in: ${arr}`);
-
+*/
 })();
