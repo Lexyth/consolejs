@@ -134,7 +134,9 @@ var logBackup = console.log;
         logMessages.push.apply(logMessages, arguments);
         logBackup.apply(console, arguments);
         let message = logMessages[logMessages.length-1];
-      collapsole.append(create("div", {}, output(message)));
+        let elem = create("div", {}, output(message));
+        collapsole.append(elem);
+        elem.scrollIntoView({behavior: "smooth"});
       };
 
       var errorBackup = console.error;
@@ -145,7 +147,9 @@ var logBackup = console.log;
         let message = errorMessages[errorMessages.length-1];
         let out = output(message);
         out.className = `${noColId}errorMessage`;
-        collapsole.append(create("div", {}, out));
+        let elem = create("div", {}, out);
+        collapsole.append(elem);
+        elem.scrollIntoView({behavior: "smooth"});
       }
 
 //TODO:
