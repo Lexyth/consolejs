@@ -282,9 +282,13 @@ function output(result, deep) {
       return create("span", {}, text(`func:${result.toString()}`));
     }
 
+    case "error" : {
+      return create("span", {}, text(`Error: ${result.toString()}`));
+    }
+
     default:
       if (type !== "number" && type !== "string")
-        console.log(type);
+        console.log(`Unknown type: ${type}`);
       return create('span', {'class': `${noColId}${type}`}, text(result.toString()));
   }
 }
