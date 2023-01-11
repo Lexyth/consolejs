@@ -50,6 +50,10 @@ style.innerHTML = `
   background: rgba(0,0,255,0.1);
 }
 
+#${noColId}console .${noColId}boolean {
+  background: rgba(0,150,150,0.1);
+}
+
 #${noColId}console :is(.${noColId}array, .${noColId}object) > label {
   display: inline-block;
   width: auto;
@@ -188,7 +192,7 @@ function Collapser (title, onclick, className) {
 
 
 function text(el, text) {
-  if (typeof el === 'string' || typeof el === 'number')
+  if (typeof el === 'string' || typeof el === 'number' || typeof el === 'boolean')
     return document.createTextNode(el);
   el.appendChild(document.createTextNode(text));
   return el;
@@ -287,8 +291,8 @@ function output(result, deep) {
     }
 
     default:
-      if (type !== "number" && type !== "string")
-        console.log(`Unknown type: ${type}`);
+      if (type !== "number" && type !== "string" && type !== "boolean")
+        console.error(`<ConsoleJS> Unknown type: ${type}`);
       return create('span', {'class': `${noColId}${type}`}, text(result.toString()));
   }
 }
